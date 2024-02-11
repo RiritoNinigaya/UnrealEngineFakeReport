@@ -4,10 +4,12 @@ import win32file
 import win32gui
 import os
 class Report():
-    def Main(gamename: str, gamename_short: str, exefile_name: str):
+    def Main(idgame: str):
         print("Woops... You're Game Is Crashed!!!")
         unrealeng = input("Would You Like Restart Game Again?")
         if unrealeng == "yes":
-            os.system("start E:\\SteamLibrary\\steamapps\\common\\{}\\{}\\Binaries\\Win64\\{}.exe".format(gamename, gamename_short, exefile_name))
+            os.system("start steam://rungameid/{}".format(idgame))
+        else:
+            os._exit(3003)
 if __name__ == "__main__":
-    Report.Main("Palworld", "Pal", "Palworld-Win64-Shipping")
+    Report.Main("1623730")
